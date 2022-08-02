@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mail Gösterme</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div>
+        <div>
+            <table>
+                <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Gönderen Kişi</th>
+                    <th>Gönderme tarihi</th>
+                </tr>
+                </thead>
+                <tbody id="tablo">
+                    
+                </tbody>
+            </table> 
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td>Gönderen Kişi</td>
+                    <td><p id="kisi">  </p></td>
+                </tr>
+                <tr>
+                    <td>Başlık</td>
+                    <td><p id="baslık"> </p></td>
+                </tr>
+                <tr>
+                    <td>Konu</td>
+                    <td><p id="konu">  </p></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        var mailler =[
+            mail={ID:1, Gonderen:'Ali', GonderenTarihi:'10.09.2021', Baslik:'Baslik 1', Konu:'Konu 1'},
+            mail={ID:2, Gonderen:'Fatma', GonderenTarihi:'25.12.2019', Baslik:'Baslik 2', Konu:'Konu 2'},
+            mail={ID:3, Gonderen:'Eren', GonderenTarihi:'07.12.2019', Baslik:'Baslik 3', Konu:'Konu 3'},
+            mail={ID:4, Gonderen:'Veli', GonderenTarihi:'09.12.2019', Baslik:'Baslik 4', Konu:'Konu 4'},
+        ]
+        var tablo= document.getElementById('tablo');
+        var kisi= document.getElementById('kisi');
+        var baslik= document.getElementById('baslık');
+        var konu= document.getElementById('konu');
+        mailler.forEach(element=>{
+            var satir= "<tr><td>" + element.ID + "</td><td>"+ element.Gonderen + "</td><td>" + element.GonderenTarihi + "</td><td><button onclick='Goster("+element.ID+")'>GÖSTER</button></td></tr>" 
+            tablo.innerHTML+= satir;
+        });
+        function Goster(id){
+            var index=mailler.findIndex(mail=>mail.ID==id);
+            kisi.innerHTML=mailler[index].Gonderen;
+            baslik.innerHTML=mailler[index].Baslik;
+            konu.innerHTML=mailler[index].Konu;
+        }
+    </script>
+</body>
+</html>
