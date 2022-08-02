@@ -1,7 +1,18 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    
+    
+}
 table,tr,td,th{
-    border: 1px solid black;
+    border: 2px solid black;
+    border-collapse: collapse;
+    padding: 15px;
+    width: 25%;
+  
 }
 div{
     float: left;
-    margin: 20px;
+    margin: 20px;;
 }
